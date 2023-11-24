@@ -1,0 +1,62 @@
+/* Stylizacja dla kontenera */
+.justifyView {
+  display: flex;
+  justify-content: center;
+}
+
+/* Stylizacja dla tabeli */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px; /* Dostosuj margines w zależności od potrzeb */
+}
+
+/* Stylizacja dla nagłówka tabeli */
+thead {
+  background-color: #f2f2f2; /* Dostosuj kolor tła nagłówka */
+}
+
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+
+}
+
+/* Stylizacja dla komórek w tabeli */
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+/* Stylizacja dla tekstu w komórkach */
+.tbody {
+  display: block !important; /* Zapobiega rozciąganiu komórek na całą szerokość */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+}
+
+/* Stylizacja dla nagłówków w komórkach */
+.theader {
+  font-weight: bold;
+
+}
+.selected{
+  background-color: red;
+}
+/* You can add global styles to this file, and also import other style files */
+.details {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #dddddd;
+  background-color: #f9f9f9;
+}
+
+/* Dodatkowy stylizowany blok w detalach */
+.details > div {
+  margin-bottom: 8px;
+  font-weight: bold;
+}

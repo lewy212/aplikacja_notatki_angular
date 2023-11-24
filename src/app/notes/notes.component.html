@@ -1,0 +1,25 @@
+<div className="justifyView" #pierwszyDiv>
+  <table>
+    <thead>
+  <tr>
+    <th *ngFor="let note_th of headers">
+      <span class="theader">{{note_th}}</span>
+    </th>
+  </tr>
+  </thead>
+    <tr *ngFor="let note of noteList"[class.selected]="note===selectedNote">
+      <td (mouseenter)="onSelect(note)"><span class ="tbody">{{note.title}}</span></td>
+      <td (mouseenter)="onSelect(note)"><span class ="tbody">{{note.category}}</span></td>
+      <td (mouseenter)="onSelect(note)"><span class ="tbody">{{note.content}}</span></td>
+      <td (mouseenter)="onSelect(note)"> <span class ="tbody">{{note.Data}}</span></td>
+      <td (mouseenter)="onSelect(note)"> <span class ="tbody">{{note.time}}</span></td>
+      <td (mouseenter)="onSelect(note)"> <span class ="tbody">{{note.status}}</span>
+    </td></tr>
+  </table>
+  <button mat-raised-button color="primary" (click)="openDialog()">Add note</button>
+</div>
+<div class="details" *ngIf="selectedNote!=null"  #drugiDiv>
+  <div>{{selectedNote.title}}</div>
+  <div>{{selectedNote.category}}</div>
+  <div>{{selectedNote.content}}</div>
+</div>
