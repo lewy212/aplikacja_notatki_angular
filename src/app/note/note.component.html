@@ -1,1 +1,25 @@
-<p>note works!</p>
+<mat-card class="details">
+  <mat-card-header>
+    <mat-card-title>Title: {{note.title|titlecase}}</mat-card-title>
+    <mat-card-subtitle>
+      Category: {{note.category|uppercase}}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-button>
+      <mat-icon class="brown">description</mat-icon></button> {{note.content}}
+  </mat-card-content>
+  <mat-card-content *ngIf="note.time">
+    <mat-icon class="red">notification_important</mat-icon>
+    Remind: {{note.Data}} at {{note.time}}</mat-card-content>
+  <mat-card-content *ngIf="!note.time">
+    Created: {{note.Data}}
+  </mat-card-content>
+  <mat-card-content>Status:
+    <button (click)="changeStatus()" *ngIf="note.status===true" mat-button><mat-icon class="green">done_outline</mat-icon></button>
+    <button (click)="changeStatus()" *ngIf="note.status===false" mat-button><mat-icon class="red">close</mat-icon></button></mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="editSelectedNote()">EDIT</button>
+    <button mat-raised-button color="warn" (click)="deleteSelectedNote()">DELETE</button>
+  </mat-card-actions>
+</mat-card>

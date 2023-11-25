@@ -57,4 +57,13 @@ export class NotesComponent implements OnInit {
       }
     });
   }
+
+  changeStatus() {
+  this.selectedNote.status=!this.selectedNote.status;
+  }
+
+  deleteNote() {
+  this.noteList = this.noteList.filter(obj => obj !== this.selectedNote);
+  this.selectedNote = null;
+  }
 }
