@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Note} from "../Note";
+import {MatDialog} from "@angular/material/dialog";
+import {AddReminderComponent} from "../add-reminder/add-reminder.component";
 
 @Component({
   selector: 'app-note',
@@ -11,7 +13,8 @@ export class NoteComponent {
   @Output() changeNoteStatus: EventEmitter<void> = new EventEmitter();
   @Output() deleteNote: EventEmitter<void> = new EventEmitter();
   @Output() editNote: EventEmitter<void> = new EventEmitter();
-  constructor() {
+  editAmount: boolean;
+  constructor(public dialog: MatDialog) {
   }
   ngOnInit():void{
 
@@ -24,6 +27,21 @@ export class NoteComponent {
   }
   editSelectedNote():void{
     this.editNote.emit();
+  }
+  openDialog():void{
+    let dialogRef = null;
+    dialogRef = this.dialog.open(AddReminderComponent,{
+      width:'30%',
+      data:{date: this.note.date,time: this.note.time}
+    });
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result !==undefined){
+        if(result.time!=='' && result.date !==''){
+          this.note.date = new Date(result.date);
+          this.note.time = result.time;
+        }
+      }
+    })
   }
 
   getStatus():boolean {

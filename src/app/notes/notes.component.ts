@@ -44,6 +44,7 @@ export class NotesComponent implements OnInit {
     if (
       !this.pierwszyDiv.nativeElement.contains(event.target) &&
       !this.drugiDiv?.nativeElement.contains(event.target)&&
+      this.drugiDiv?.nativeElement.contains(event.target)&&
       this.otwarte ==false
     ) {
       this.selectedNote = null;

@@ -16,11 +16,18 @@
     <mat-list>
       <mat-list-item *ngFor="let item of $any(note).Content;index as ind">{{ind+1}}.{{item}}</mat-list-item>
     </mat-list>
-    Price: {{$any(note).amount |currency: 'PLN':'zł'}}
+    <p *ngIf="!editAmount" (click)="editAmount=true"> Price: {{$any(note).amount |currency: 'PLN':'zł'}}</p>
+    <mat-form-field *ngIf = "editAmount" class="example-full-width" #trzeciDiv>
+      <mat-label>Price</mat-label>
+      <input matInput [(ngModel)]="$any(note).amount" name="amount" type="number" equired>
+      <mat-label> zł</mat-label>
+    </mat-form-field>
+    <button *ngIf="editAmount" mat-raised-button color="primary" (click)="editAmount=false">Ok</button>
   </mat-card-content>
   <mat-card-content *ngIf="note.time">
     <mat-icon class="red">notification_important</mat-icon>
     Remind: {{note.Data}} at {{note.time}}</mat-card-content>
+  <button mat-button (click)="openDialog()"><mat-icon class="brown">notification_important</mat-icon></button>
   <mat-card-content *ngIf="!note.time">
     Created: {{note.Data}}
   </mat-card-content>

@@ -21,6 +21,7 @@ import {MatIcon, MatIconModule} from "@angular/material/icon";
 import { CategoryPrintDirective } from './category-print.directive';
 import {MatTableModule} from "@angular/material/table";
 import {MatListModule} from "@angular/material/list";
+import { AddReminderComponent } from './add-reminder/add-reminder.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {MatListModule} from "@angular/material/list";
     AddNoteComponent,
     EditNoteComponent,
     NoteComponent,
-    CategoryPrintDirective
+    CategoryPrintDirective,
+    AddReminderComponent
   ],
   imports: [
     BrowserModule,
