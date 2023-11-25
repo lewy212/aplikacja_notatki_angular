@@ -5,9 +5,18 @@
       Category: {{note.category|uppercase}}
     </mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content>
+  <mat-card-content *ngIf="note.category!=='Shopping list'">
     <button mat-button>
       <mat-icon class="brown">description</mat-icon></button> {{note.content}}
+  </mat-card-content>
+  <mat-card-content *ngIf="note.category==='Shopping list'">
+    <button mat-button>
+      <mat-icon class="brown">description</mat-icon>
+    </button>
+    <mat-list>
+      <mat-list-item *ngFor="let item of $any(note).Content;index as ind">{{ind+1}}.{{item}}</mat-list-item>
+    </mat-list>
+    Price: {{$any(note).amount |currency: 'PLN':'zł'}}
   </mat-card-content>
   <mat-card-content *ngIf="note.time">
     <mat-icon class="red">notification_important</mat-icon>
@@ -15,9 +24,15 @@
   <mat-card-content *ngIf="!note.time">
     Created: {{note.Data}}
   </mat-card-content>
-  <mat-card-content>Status:
-    <button (click)="changeStatus()" *ngIf="note.status===true" mat-button><mat-icon class="green">done_outline</mat-icon></button>
-    <button (click)="changeStatus()" *ngIf="note.status===false" mat-button><mat-icon class="red">close</mat-icon></button></mat-card-content>
+  <mat-card-content *ngIf="$any(note).status!==undefined">Status:
+    <span *ngIf="getStatus()">
+      <button (click)="changeStatus()" mat-button><mat-icon class="green">done_outline</mat-icon></button>
+    </span>
+
+    <span *ngIf="!getStatus()">
+       <button (click)="changeStatus()" mat-button><mat-icon class="red">close</mat-icon></button>
+    </span>
+  </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button color="primary" (click)="editSelectedNote()">EDIT</button>
     <button mat-raised-button color="warn" (click)="deleteSelectedNote()">DELETE</button>

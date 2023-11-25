@@ -25,4 +25,8 @@ export class NoteComponent {
   editSelectedNote():void{
     this.editNote.emit();
   }
+
+  getStatus():boolean {
+    return this.note.status;
+  }
 }

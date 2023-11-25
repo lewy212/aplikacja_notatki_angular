@@ -22,7 +22,10 @@ export class NotesComponent implements OnInit {
       const keys = Object.keys(el);
       keys.forEach(key =>{
         if(!this.headers.includes(key)){
-          this.headers.push(key);
+          if(key!=='amount'){
+            this.headers.push(key);
+          }
+
         }
       });
     });

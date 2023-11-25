@@ -28,11 +28,12 @@ td {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+  width: auto; /* Dodaj to, aby komórki mogły dostosować swoją szerokość automatycznie */
 }
 
 /* Stylizacja dla tekstu w komórkach */
 .tbody {
-  display: block !important; /* Zapobiega rozciąganiu komórek na całą szerokość */
+  display: block ; /* Zapobiega rozciąganiu komórek na całą szerokość */
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -59,4 +60,8 @@ td {
 .details > div {
   margin-bottom: 8px;
   font-weight: bold;
+}
+.mat-icon {
+  height: auto;
+  width: auto;
 }

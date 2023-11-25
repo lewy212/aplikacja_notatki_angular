@@ -18,6 +18,9 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
 import {MatCardModule} from "@angular/material/card";
 import {MatIcon, MatIconModule} from "@angular/material/icon";
+import { CategoryPrintDirective } from './category-print.directive';
+import {MatTableModule} from "@angular/material/table";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import {MatIcon, MatIconModule} from "@angular/material/icon";
     NotesComponent,
     AddNoteComponent,
     EditNoteComponent,
-    NoteComponent
+    NoteComponent,
+    CategoryPrintDirective
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,9 @@ import {MatIcon, MatIconModule} from "@angular/material/icon";
     NgxMaterialTimepickerModule,
     FormsModule,
     MatDatepickerModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
