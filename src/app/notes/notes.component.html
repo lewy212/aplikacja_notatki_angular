@@ -18,8 +18,8 @@
     </td></tr>
   </table>
 
-  <button mat-raised-button color="primary" (click)="openDialog()">Add note</button>
+  <button mat-raised-button color="primary" (click)="openDialog(true,false)">Add note</button>
 </div>
 <div  *ngIf="selectedNote!=null" #drugiDiv>
-  <app-note [note]="selectedNote" (changeNoteStatus)="changeStatus()" (deleteNote)="deleteNote()" (editNote)="openDialog()"></app-note>
+  <app-note [note]="selectedNote" (changeNoteStatus)="changeStatus()" (deleteNote)="deleteNote()" (editNote)="openDialog(false,true)"></app-note>
 </div>

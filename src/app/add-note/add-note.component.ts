@@ -13,7 +13,7 @@ export class AddNoteComponent implements OnInit{
   constructor(public dialogRef: MatDialogRef<AddNoteComponent>,@Inject(MAT_DIALOG_DATA) public data: Note) {
   }
 ngOnInit() {
-    this.categoryList=Categories
+    this.categoryList=Categories;
 }
 onNoClick():void{
     console.log();
